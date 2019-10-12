@@ -38,8 +38,6 @@
 	$body .= "</tbody></table>";
 	$body .= "</body></html>";
 
-	echo "Email sent!";
-
     $send = mail($to, $subject, $body, $headers);
 
 ?>
