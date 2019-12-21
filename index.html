@@ -37,6 +37,61 @@
   <!-- main css -->
   <!-- <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css"> -->
+  <style rel="stylesheet" type="text/css">
+  #mySidenav a {
+  position: absolute;
+  left: -80px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:hover {
+  left: 0;
+}
+
+#mySidenav a {
+  position: absolute;
+  left: -60px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 13px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  margin-top: 160px;
+}
+
+#mySidenav a:hover {
+  left: 0;
+}
+
+#about {
+  top: 20px;
+  background-color: #4CAF50;
+}
+
+#blog {
+  top: 80px;
+  background-color: #2196F3;
+}
+
+#projects {
+  top: 140px;
+  background-color: #f44336;
+}
+
+#contact {
+  top: 200px;
+  background-color: #555
+}
+
+  </style>
 
 </head>
 
@@ -72,12 +127,19 @@
     </div>
   </nav>
 
-  <!-- Masthead -->
+    
+   <!-- Masthead -->
   <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
 
       <!-- Masthead Avatar Image -->
       <img class="masthead-avatar mb-5" src="img/avatar.png" alt="web developer || javascript || node js">
+
+
+      <div id="mySidenav" class="sidenav">
+          <a href="https://drive.google.com/drive/folders/1wOM97hWVa8RMpwJZd5I8i965v7Op8Bwg?usp=sharing" id="blog">ReactJS</a>
+          <a href="https://drive.google.com/drive/folders/1Rl7HEsNgvooPzOKwQ8q8BS-OckghxBB0?usp=sharing" id="projects">Advance JS</a>
+        </div>
 
       <!-- Masthead Heading -->
       <h1 class="masthead-heading text-uppercase mb-0">WEB DEVELOPER</h1>
@@ -129,7 +191,7 @@
             <img class="img-fluid" src="img/portfolio/cabin.png" alt="web developer || javascript || node js">
           </div>
         </div>
-
+      
         <!-- Portfolio Item 2 -->
         <div class="col-md-6 col-lg-4">
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
