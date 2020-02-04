@@ -84,6 +84,23 @@
   background-color: #555
 }
 
+/* for heart beat at blog link */
+@-webkit-keyframes heartbeat {
+	0% { -webkit-transform: scale(1); }
+	50% { -webkit-transform: scale(0.9); }
+	100% { -webkit-transform: scale(1); }
+}
+.my_heratbeat_class:hover {
+
+  -webkit-animation-name: heartbeat;
+  /* cahnge heart beat rate */
+	-webkit-animation-duration: 600ms;
+
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-iteration-count: 10000000;
+	-webkit-animation-timing-function: linear;
+}
+
   </style>
 
 </head>
@@ -136,7 +153,13 @@
         </div>
 
       <!-- Masthead Heading -->
-      <h1 class="masthead-heading text-uppercase mb-0">WEB DEVELOPER</h1>
+      <!-- <h1 class="masthead-heading text-uppercase mb-0">WEB DEVELOPER</h1> -->
+      <div class="container" >
+          <h1 class="typewrite" data-period="2000" data-type='[ "Hi, Im Sagar.", "A Developer.", "love to code", ":-)", "/>", "..." ]'></h1>
+            <span class="wrap"></span>
+            <span></span>
+        </h1>
+      </div>
 
       <!-- Icon Divider -->
       <div class="divider-custom divider-light">
@@ -508,7 +531,7 @@
         <div class="col-lg-4 mb-5 mb-lg-0">
             <h4 class="text-uppercase mb-4">my blog</h4>
             <!-- <p class="lead mb-0">our little things </p> -->
-            <a target="blank" href="https://dotlittlethings.blogspot.com/"><i> <img  width="100" height="100" src="img/myBlog.png" alt="web developer || javascript || node js"> </i></a>
+            <a target="blank"  href="https://dotlittlethings.blogspot.com/"><i> <img class="my_heratbeat_class" width="100" height="100" src="img/myBlog.png" alt="web developer || javascript || node js"> </i></a>
           </div>
 
         <!-- Footer About Text -->
@@ -800,27 +823,65 @@
   <!-- Custom scripts for this template -->
   <script src="js/freelancer.min.js"></script>
 
-  <!--for progress bar-->
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+  <!-- script for typright ter main head template -->
+<script>
+  var TxtType = function(el, toRotate, period) {
+    this.toRotate = toRotate;
+    this.el = el;
+    this.loopNum = 0;
+    this.period = parseInt(period, 10) || 2000;
+    this.txt = '';
+    this.tick();
+    this.isDeleting = false;
+};
 
-  <!-- my custom add-ons-->
-  <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <!-- <script src="js/jquery-3.2.1.min.js"></script>
-        <script src="js/popper.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/stellar.js"></script>
-        <script src="vendors/lightbox/simpleLightbox.min.js"></script>
-        <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
-        <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
-        <script src="vendors/isotope/isotope-min.js"></script>
-        <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-        <script src="js/jquery.ajaxchimp.min.js"></script>
-        <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
-        <script src="vendors/counter-up/jquery.counterup.min.js"></script>
-        <script src="js/mail-script.js"></script> -->
+TxtType.prototype.tick = function() {
+    var i = this.loopNum % this.toRotate.length;
+    var fullTxt = this.toRotate[i];
+
+    if (this.isDeleting) {
+    this.txt = fullTxt.substring(0, this.txt.length - 1);
+    } else {
+    this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+
+    this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+    var that = this;
+    var delta = 200 - Math.random() * 100;
+
+    if (this.isDeleting) { delta /= 2; }
+
+    if (!this.isDeleting && this.txt === fullTxt) {
+    delta = this.period;
+    this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === '') {
+    this.isDeleting = false;
+    this.loopNum++;
+    delta = 500;
+    }
+
+    setTimeout(function() {
+    that.tick();
+    }, delta);
+};
+
+window.onload = function() {
+    var elements = document.getElementsByClassName('typewrite');
+    for (var i=0; i<elements.length; i++) {
+        var toRotate = elements[i].getAttribute('data-type');
+        var period = elements[i].getAttribute('data-period');
+        if (toRotate) {
+          new TxtType(elements[i], JSON.parse(toRotate), period);
+        }
+    }
+    // INJECT CSS
+    var css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+    document.body.appendChild(css);
+};
+</script>
 
 </body>
 
