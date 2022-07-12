@@ -3,6 +3,18 @@
 
 <head>
 
+  <!-- jquery -->
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+  <script>
+  $(function () {
+    $("#includedContent").load("gitHub.html");
+  });
+</script>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="web developer || node js || javascript" content="web developer || node js || javascript">
@@ -30,7 +42,7 @@
   position: absolute;
   left: -60px;
   transition: 0.3s;
-  padding: 15px;
+  padding: 12px;
   width: 100px;
   text-decoration: none;
   font-size: 13px;
@@ -94,19 +106,120 @@
   width: 240px;
   height: 240px;
   margin-bottom: 25px;
+  border: solid;
+  border-radius: 50%;
+  box-sizing: content-box;
 }
 
 #slideshow > div {
   position: absolute;
 }
+/* overlay reusme */
+.buttons a {
+  display: inline-block;
+  background: #e74a54;
+  color: #fff;
+  padding: 10px 40px;
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.overlay {
+  background: #e74a54;
+  position: fixed;
+  top: 10;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+}
+.overlay.is-on {
+  opacity: 1;
+  visibility: visible;
+  z-index: 99 ;
+}
+.overlay.is-on .content {
+  opacity: 1;
+  visibility: visible;
+  top: 100px;
+}
+.overlay .content {
+  background: #fff;
+  position: absolute;
+  top: -50%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 50%;
+  height: 80%;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#close {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  font-size: 15px;
+  color: white;
+  z-index: 99;
+  cursor: pointer;
+}
+#download {
+  position: absolute;
+  right: 15%;
+  bottom: 10px;
+  font-size: 15px;
+  color: white;
+  z-index: 99;
+  cursor: pointer;
+}
+
+#mouseEvent{
+  cursor: pointer;
+}
+.custom_display_project{
+  width: 15%;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+}
+
+@media only screen and (max-width : 768px) {
+.overlay .content {
+  width: 80%;
+  
+}
+.custom_display_project{
+  width: 30%;
+}
+#download {
+  position: absolute;
+  right: 30%;
+  bottom: 10px;
+  font-size: 15px;
+  color: white;
+  z-index: 99;
+  cursor: pointer;
+}
+}
 
 </style>
 
-<!-- jquery -->
-<script
-  src="https://code.jquery.com/jquery-3.5.1.min.js"
-  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-  crossorigin="anonymous"></script>
+
 <script>
 
   // for slide animation
@@ -120,17 +233,49 @@
       .end()
       .appendTo('#slideshow');
   }, 3000);
+
+  // overlay
+// $("#resumeButton").on("click", function() {
+//   alert("cliked")
+// });
+function resumeButton(){
+  $(".overlay").addClass("is-on");
+}
+
+function closeresumeButton(){
+  $(".overlay").removeClass("is-on");
+}
+$("#close").on("click", function() {
+});
+
+
+
 </script>
 
 </head>
 
 <body id="page-top">
 
+  <!-- resume overlay -->
+
+<div class="overlay">
+  <div class="content">
+    <div onclick="closeresumeButton()"  id="close"><i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+        <div  id="download"><a href="https://drive.google.com/uc?export=download&id=1l_AZpd4gsRGRVxh5_MARZhXJV3zlUYdt"> <i class="fa fa-download" aria-hidden="true"></i></a>
+    </div>
+    <div class="mainResume">
+     <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFGNSA46OE&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen" download>  </iframe></div>
+  </div>
+</div>
+  <!-- <div class="canva_div" >  <iframe loading="lazy" style="position: absolute; width: 80%; height: 80%; top: 0; left: 0; border: none; padding: 0;margin: 0;"    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFGNSA46OE&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">  </iframe></div>
+  </div> -->
+
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top" style="font-size: 13px; margin-left: 0px">console.log(`i am Sagar`);</a>
-      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
       </button>
@@ -152,7 +297,7 @@
               <a target="_blank" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="mailto:thesagar.sk@gmail.com">Mail me</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <a target="_blank" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="https://drive.google.com/file/d/1cv7IdHdx3x3rky8szecQ0w4LyPiVxY-K/view?usp=sharing">My resume</a>
+              <a target="_blank" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" id="mouseEvent" onclick="resumeButton()" >My resume</a>
             </li>
 
         </ul>
@@ -162,7 +307,7 @@
 
 
    <!-- Masthead -->
-  <header class="masthead bg-primary text-white text-center">
+  <header class="masthead text-white text-center">
     <div class="container d-flex align-items-center flex-column">
 
       <!-- Masthead Avatar Image -->
@@ -190,7 +335,7 @@
           <a href="https://drive.google.com/drive/folders/1wOM97hWVa8RMpwJZd5I8i965v7Op8Bwg?usp=sharing" target="_blank" id="blog">ReactJS  <i class="fa fa-download" aria-hidden="true"></i></a>
           <a href="https://drive.google.com/drive/folders/1Rl7HEsNgvooPzOKwQ8q8BS-OckghxBB0?usp=sharing" target="_blank" id="projects">JS Pillars <i class="fa fa-download" aria-hidden="true"></i> </a>
           <a href="https://drive.google.com/drive/folders/1kLB7bQ7py_BhXHYCfLbx5BwWEsc5xudc?usp=sharing" target="_blank" id="reactNative">R.Native <i class="fa fa-download" aria-hidden="true"></i> </a>
-          <a href="https://drive.google.com/drive/folders/1df4eizN6sjroOGH9X1ySJiwLh4TOKZi4?usp=sharing" target="_blank" id="reactNative2">R.Native2<i class="fa fa-download" aria-hidden="true"></i> </a>
+          
         </div>
 
       <!-- Masthead Heading -->
@@ -212,7 +357,7 @@
       </div>
 
       <!-- Masthead Subheading -->
-      <p class="masthead-subheading font-weight-light mb-0">node js, JavaScript, html, css, mysql, mongodb, vue js...</p>
+      <p class="masthead-subheading font-weight-light mb-0"><span class="text-primary h6">As far as my skills are concerned, I don't possess any degree that describes my ability. It would be more accurate to describe me as self-employed.</span> </br> Node js, JavaScript, Devops, html, css, mysql, mongodb, vue js...</p>
 
     </div>
   </header>
@@ -223,9 +368,9 @@
 
       <!-- Portfolio Section Heading -->
       <br>
-      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0"> my projects</h2>
+      <h2 class="page-section-heading text-center text-uppercase text-primary mb-0"> my projects</h2>
       <!-- Icon Divider -->
-      <div class="divider-custom">
+      <div class="divider-custom divider-light">
         <div class="divider-custom-line"></div>
         <div class="divider-custom-icon">
           <i class="fas fa-star"></i>
@@ -233,16 +378,19 @@
         <div class="divider-custom-line"></div>
       </div>
 
+      <!-- github project div -->
+      <div id="includedContent"></div>
+
       <!-- Portfolio Grid Items -->
-      <div class="row">
+      <div class="row mt-5 justify-content-center">
 
         <!-- Portfolio Item 1 -->
-        <div class="col-md-6 col-lg-4">
+        <div class="custom_display_project">
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
                 <i class="fas fa-plus fa-3x"></i>
-                <h4>E.WALLET</h4>
+                <h6>E.WALLET</h6>
 
               </div>
             </div>
@@ -251,12 +399,12 @@
         </div>
 
         <!-- Portfolio Item 2 -->
-        <div class="col-md-6 col-lg-4">
+        <div class="custom_display_project">
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
                 <i class="fas fa-plus fa-3x"></i>
-                <h4>WEATHER APP</h4>
+                <h6>WEATHER APP</h6>
 
               </div>
             </div>
@@ -265,12 +413,12 @@
         </div>
 
         <!-- Portfolio Item 3 -->
-        <div class="col-md-6 col-lg-4">
+        <div class="custom_display_project">
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
                 <i class="fas fa-plus fa-3x"></i>
-                <h4>ADVANCE LOG IN API</h4>
+                <h6>ADVANCE LOG IN API</h6>
 
               </div>
             </div>
@@ -279,12 +427,12 @@
         </div>
 
         <!-- Portfolio Item 4 -->
-        <div class="col-md-6 col-lg-4">
+        <div class="custom_display_project">
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
                 <i class="fas fa-plus fa-3x"></i>
-                <h4>OUR PLANET</h4>
+                <h6>OUR PLANET</h6>
 
               </div>
             </div>
@@ -293,12 +441,12 @@
         </div>
 
         <!-- Portfolio Item 5 -->
-        <div class="col-md-6 col-lg-4">
+        <div class="custom_display_project">
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
                 <i class="fas fa-plus fa-3x"></i>
-                <h4>BOOTSTRAP</h4>
+                <h6>BOOTSTRAP</h6>
 
               </div>
             </div>
@@ -307,12 +455,12 @@
         </div>
 
         <!-- Portfolio Item 6 -->
-        <div class="col-md-6 col-lg-4">
+        <div class="custom_display_project">
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
                 <i class="fas fa-plus fa-3x"></i>
-                <h4>E.COMMERCE</h4>
+                <h6>E.COMMERCE</h6>
               </div>
             </div>
             <img class="img-fluid" src="img/portfolio/submarine.png" alt="web developer || javascript || node js">
@@ -332,14 +480,6 @@
       <!-- About Section Heading -->
       <h2 class="page-section-heading text-center text-uppercase text-primary">About</h2>
 
-      <!-- Icon Divider -->
-      <div class="divider-custom">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon">
-          <i class="fas fa-star"></i>
-        </div>
-        <div class="divider-custom-line"></div>
-      </div>
 
       <!-- Icon Divider -->
       <div class="divider-custom divider-light">
@@ -473,9 +613,9 @@
                 <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" style="width:31%"></div>
               </div>
               <div class="skill_item">
-                <h5>jquery <span class="counter">29</span>%</h5>
+                <h5>devOps <span class="counter">55</span>%</h5>
                 <div class="progress">
-                  <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width:29%"></div>
+                  <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width:55%"></div>
                 </div>
         </div>
         </div>
