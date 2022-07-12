@@ -5698,7 +5698,8 @@ button.close {
     position: relative;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
-    padding: 1rem
+    padding: 1rem;
+    background-color: #df1366;
 }
 
 .modal-footer {
