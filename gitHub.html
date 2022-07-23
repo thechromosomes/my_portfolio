@@ -67,6 +67,9 @@
         font-size: 14px;
         padding: 20px 20px 20px 20px !important;
         border-top: 1px solid #e5e5e5;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       .octicon.octicon-repo.icon,
       .octicon.octicon-repo-forked.icon {
@@ -158,12 +161,16 @@
         width: 24%;
       }
 
-    @media only screen and (max-width : 768px) {
+      @media only screen and (max-width: 768px) {
         .ancher_class {
           border: solid gray;
           box-sizing: border-box;
           margin: 3px;
-          width: 95%;
+          width: 46%;
+        }
+
+        .repo__view-wrap li {
+          padding: 10px 10px 10px 10px !important;
         }
       }
     </style>
