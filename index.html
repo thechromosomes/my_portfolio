@@ -42,6 +42,14 @@
   <link href="css/freelancer.min.css" rel="stylesheet">
   <style rel="stylesheet" type="text/css">
 
+    #_slideBackGroundImage{
+        background-image: url("./img/Mandala.svg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+
+    }
+
 #mySidenav a {
   position: absolute;
   left: -60px;
@@ -317,15 +325,13 @@ $("#close").on("click", function() {
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
           </li>
-<!--           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
-          </li> -->
+            <li class="nav-item mx-0 mx-lg-1">
+              <a target="_blank" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" target="_blank" href="#skillsPanel">SKILLS</a>
+            </li>
           <li class="nav-item mx-0 mx-lg-1">
               <a target="_blank" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" target="_blank" href="https://github.com/thechromosomes">GITHUB</a>
             </li>
-                 <li class="nav-item mx-0 mx-lg-1">
-              <a target="_blank" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" target="_blank" href="#skillsPanel">SKILLS</a>
-            </li>
+      
             <li class="nav-item mx-0 mx-lg-1">
               <a target="_blank" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="mailto:thesagar.sk@gmail.com">Mail me</a>
             </li>
@@ -340,8 +346,8 @@ $("#close").on("click", function() {
 
 
    <!-- Masthead -->
-  <header class="masthead text-white text-center">
-    <div class="container d-flex align-items-center flex-column">
+  <header class="masthead text-white text-center" id="_slideBackGroundImage">
+    <div class="container d-flex align-items-center flex-column" >
 
       <!-- Masthead Avatar Image -->
 
