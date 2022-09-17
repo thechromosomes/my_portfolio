@@ -15,6 +15,8 @@
     $("#includedContent").load("gitHub.html");
     $("#particles").load("./particles.html");
     $("#skillsPanel").load("./skills.html");
+    $("#workExperience").load("./workExperience.html");
+
 
 
   });
@@ -41,6 +43,11 @@
   <!-- Theme CSS -->
   <link href="css/freelancer.min.css" rel="stylesheet">
   <style rel="stylesheet" type="text/css">
+
+    .sectiontitleTEXT{
+      text-align: center;
+      margin-top: 20px;
+    }
 
     #_slideBackGroundImage{
         /* background-image: url("./img/Mandala.svg");
@@ -328,6 +335,10 @@ $("#close").on("click", function() {
               <li class="nav-item mx-0 mx-lg-1">
               <a target="_blank" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" target="_blank" href="#skillsPanel">SKILLS</a>
             </li>
+
+            <li class="nav-item mx-0 mx-lg-1">
+              <a target="_blank" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" target="_blank" href="#workExperiencePanel">Experience</a>
+            </li>
           <li class="nav-item mx-0 mx-lg-1">
               <a target="_blank" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" target="_blank" href="https://github.com/thechromosomes">GITHUB</a>
             </li>
@@ -370,12 +381,12 @@ $("#close").on("click", function() {
      </div>
 
 
-      <div id="mySidenav" class="sidenav">
+      <!-- <div id="mySidenav" class="sidenav">
           <a href="https://drive.google.com/drive/folders/1wOM97hWVa8RMpwJZd5I8i965v7Op8Bwg?usp=sharing" target="_blank" id="blog">ReactJS  <i class="fa fa-download" aria-hidden="true"></i></a>
           <a href="https://drive.google.com/drive/folders/1Rl7HEsNgvooPzOKwQ8q8BS-OckghxBB0?usp=sharing" target="_blank" id="projects">JS Pillars <i class="fa fa-download" aria-hidden="true"></i> </a>
           <a href="https://drive.google.com/drive/folders/1kLB7bQ7py_BhXHYCfLbx5BwWEsc5xudc?usp=sharing" target="_blank" id="reactNative">R.Native <i class="fa fa-download" aria-hidden="true"></i> </a>
           
-        </div>
+        </div> -->
 
       <!-- Masthead Heading -->
       <!-- <h1 class="masthead-heading text-uppercase mb-0">WEB DEVELOPER</h1> -->
@@ -729,13 +740,25 @@ $("#close").on("click", function() {
     </div>
   </section>
   <!--================End Welcome Area =================-->
-      <div class="col-12"  >
+
+  <div id="skillsPanel" class="col-12 text-center">
+  </div>
+
+        <div class="col-12 mt-5" id="workExperiencePanel" >
+        <h2 class="page-section-heading text-center text-uppercase text-primary">Work Experience</h2>
+              <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
 
       <img src="./img/work.png" style="max-width: 100%;">
     </div>
 
-  <div id="skillsPanel" class="col-12 text-center">
-  </div>
+    <div id="workExperience"></div>
 
     </div>
   </section>
